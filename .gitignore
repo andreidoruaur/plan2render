@@ -1,0 +1,33 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables (FOARTE IMPORTANT)
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+/node_modules
+
+# Build outputs
+/build
+/dist
+/.react-router/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# Misc
+.cache/
+
+# React Router
+/.react-router/
+/build/
