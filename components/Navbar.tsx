@@ -1,5 +1,5 @@
-import { Box } from "lucide-react";
 import Button from "./ui/Button";
+import { Box } from "lucide-react";
 import { useOutletContext } from "react-router";
 
 export default function Navbar() {

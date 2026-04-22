@@ -57,6 +57,7 @@ const DEFAULT_AUTH_STATE: AuthState = {
 export default function App() {
   const [authState, setAuthState] = useState<AuthState>(DEFAULT_AUTH_STATE);
   const [isAuthLoading, setIsAuthLoading] = useState(true);
+
   const refreshAuth = async () => {
     try {
       const user = await getCurrentUser();
@@ -81,14 +82,20 @@ export default function App() {
 
   const signIn = async () => {
     await puterSignIn();
-
     return await refreshAuth();
   };
 
   const signOut = async () => {
-    await puterSignOut();
+    setIsAuthLoading(true);
 
-    return await refreshAuth();
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 800));
+      await puterSignOut();
+      return await refreshAuth();
+    } catch (error) {
+      setIsAuthLoading(false);
+      throw error;
+    }
   };
 
   return (
